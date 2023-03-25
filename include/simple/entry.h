@@ -3,7 +3,7 @@
 #include <iostream>
 #include <map>
 
-#include "entry.h"
+#include "src/entry.h"
 
 class SimpleEntry : public Entry {
     std::string m_original;

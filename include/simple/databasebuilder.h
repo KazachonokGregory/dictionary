@@ -5,11 +5,11 @@
 #include <memory>
 #include <stdexcept>
 
-#include "databasebuilder.h"
-#include "database.h"
-#include "simple_database.cpp"
-#include "entry.h"
-#include "simple_entry.cpp"
+#include "src/databasebuilder.h"
+#include "src/database.h"
+#include "src/entry.h"
+#include "simple/database.h"
+#include "simple/entry.h"
 
 class SimpleDataBaseBuilder : public DataBaseBuilder {
     std::map<std::string, std::string> m_dictionary;

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "src/simple_dictionary.h"
+#include "simple/dictionary.h"
 
 int main() {
     SimpleDictionary d;

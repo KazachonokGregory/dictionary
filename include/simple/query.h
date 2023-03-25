@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include "query.h"
+#include "src/query.h"
 
 class SimpleQuery : public Query {
     std::string m_word;

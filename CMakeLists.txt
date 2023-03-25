@@ -1,22 +1,17 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.14)
 
 project(Dictionary)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
-add_library(project_options INTERFACE)
-add_library(project_warnings INTERFACE)
+include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/example)
 
-include(cmake/CompilerWarnings.cmake)
-set_project_warnings(project_warnings)
+add_subdirectory(include/simple)
 
-include(cmake/Sanitizers.cmake)
-enable_sanitizers(project_options)
-
-add_executable(dictionary main.cpp)
-target_link_libraries(dictionary PUBLIC project_options project_warnings)
+add_executable(Dictionary ${PROJECT_SOURCE_DIR}/example/main.cpp)
+target_link_libraries(Dictionary SimpleDictionary)
 

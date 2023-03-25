@@ -3,10 +3,10 @@
 #include <iostream>
 #include <memory>
 
-#include "simple_databasebuilder.h"
-#include "simple_database.h"
-#include "simple_query.h"
-#include "simple_entry.h"
+#include "simple/databasebuilder.h"
+#include "simple/database.h"
+#include "simple/query.h"
+#include "simple/entry.h"
 
 class SimpleDictionary {
     std::shared_ptr<DataBase> m_database;

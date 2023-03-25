@@ -4,11 +4,11 @@
 #include <memory>
 #include <sstream>
 
-#include "queryanswer.h"
-#include "query.h"
-#include "simple_query.cpp"
-#include "simple_queryanswer.cpp"
-#include "database.h"
+#include "src/queryanswer.h"
+#include "src/query.h"
+#include "src/database.h"
+#include "simple/query.h"
+#include "simple/queryanswer.h"
 
 class SimpleDataBase : public DataBase {
     std::map<std::string, std::string> m_dictionary;

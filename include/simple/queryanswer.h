@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include "queryanswer.h"
+#include "src/queryanswer.h"
 
 class SimpleQueryAnswer : public QueryAnswer {
     std::string result;
