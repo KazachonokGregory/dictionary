@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "simple/dictionary.h"
+#include "simple/consoleapplication.h"
 
 int main() {
-    SimpleDictionary d;
+    SimpleConsoleApplication d;
     d.run();
 }
