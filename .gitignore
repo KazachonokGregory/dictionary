@@ -1,2 +1,6 @@
 build/
+bin/
+lib/
+build.sh
 .cache/
+*.user

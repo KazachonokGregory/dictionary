@@ -12,7 +12,7 @@ set(SOURCE_LIB
     ${LIBRARY_HEADERS}
 )
 
-qt_add_library(simple SHARED ${SOURCE_LIB})
+add_library(simple SHARED ${SOURCE_LIB})
 target_include_directories(simple PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_link_libraries(simple
     Qt6::Widgets
