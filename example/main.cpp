@@ -1,8 +1,13 @@
-#include <iostream>
+#include <QApplication>
 
-#include "simple/consoleapplication.h"
+#include "qt/mainwindow.h"
 
-int main() {
-    SimpleConsoleApplication d;
-    d.run();
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
+    return a.exec();
 }
+
