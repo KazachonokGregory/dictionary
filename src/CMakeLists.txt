@@ -1,22 +1,24 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.16)
 
 project(SimpleDictionary)
 
+file(GLOB_RECURSE LIBRARY_HEADERS "${CMAKE_SOURCE_DIR}/include/*.h")
+file(GLOB_RECURSE SOURCE_FILES "${PROJECT_SOURCE_DIR}/*.cpp")
+file(GLOB_RECURSE UI_FILES "${PROJECT_SOURCE_DIR}/*.ui")
+
 set(SOURCE_LIB
-    simple/consoleapplication.cpp
-    simple/database.cpp
-    simple/databasebuilder.cpp
-    simple/entry.cpp
-    simple/query.cpp
-    simple/queryanswer.cpp
+    ${SOURCE_FILES}
+    ${UI_FILES}
+    ${LIBRARY_HEADERS}
 )
 
 add_library(simple SHARED ${SOURCE_LIB})
-target_include_directories(simple PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(simple PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(simple
+    Qt6::Widgets
+)
 
-file(GLOB_RECURSE LIBRARY_HEADERS "${PROJECT_SOURCE_DIR}/include/*.h")
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 install(
     TARGETS simple

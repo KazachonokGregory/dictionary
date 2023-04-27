@@ -9,5 +9,4 @@ public:
     SimpleQueryAnswer() = default;
     SimpleQueryAnswer(const std::string& result);
     void print() const override;
-    const std::string& getData() const;
 };
