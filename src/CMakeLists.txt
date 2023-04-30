@@ -14,9 +14,7 @@ set(SOURCE_LIB
 
 add_library(simple SHARED ${SOURCE_LIB})
 target_include_directories(simple PRIVATE ${CMAKE_SOURCE_DIR}/include)
-target_link_libraries(simple
-    Qt6::Widgets
-)
+target_link_libraries(simple Qt6::Sql)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
