@@ -18,10 +18,10 @@ TEST(DataBaseTests, TestSearch) {
 TEST(DataBaseTests, TestSearchUnexisistent) {
     QtDataBaseBuilder builder;
     auto database = builder.getDatabase();
-    std::shared_ptr<SimpleQuery> query = std::make_shared<SimpleQuery>(std::string("abacaba")); 
+    std::shared_ptr<SimpleQuery> query = std::make_shared<SimpleQuery>(std::string("nonsense string")); 
     std::shared_ptr<SimpleQueryAnswer> query_answer = std::dynamic_pointer_cast<SimpleQueryAnswer>(database->search(query));
     std::string result = query_answer->getData();
-    ASSERT_EQ(result, "Nothing was found!\n");
+    ASSERT_EQ(result, "Nothing was found!");
 }
 
 TEST(DataBaseTests, TestAddEntry) {

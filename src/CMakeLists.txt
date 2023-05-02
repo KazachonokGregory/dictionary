@@ -24,3 +24,13 @@ install(
     PUBLIC_HEADER DESTINATION include
 )
 
+set(CONSOLE_DICT_SOURCES
+        simple/consoleapplication.cpp
+)
+
+add_executable(console_dictionary
+    ${CONSOLE_DICT_SOURCES}
+)
+
+target_link_libraries(console_dictionary PRIVATE simple)
+
