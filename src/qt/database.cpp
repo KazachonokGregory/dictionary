@@ -21,8 +21,8 @@ std::shared_ptr<QueryAnswer> QtDataBase::search(const std::shared_ptr<Query> que
     sql_query.exec();
     std::stringstream ss;
     if (sql_query.next()) {
-        ss << sql_query.value(0).toString().toStdString() << "\n";
-        ss << sql_query.value(1).toString().toStdString() << "\n";
+        ss << sql_query.value(0).toString().toStdString();
+//        ss << sql_query.value(1).toString().toStdString() << "\n";
     } else {
         ss << "Nothing was found!\n";
     }

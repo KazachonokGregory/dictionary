@@ -27,3 +27,15 @@ include_directories(${PROJECT_SOURCE_DIR})
 add_subdirectory(src)
 add_subdirectory(qt-app)
 
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+
+add_executable(Tests tests/main_test.cpp)
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
+target_link_libraries(Tests ${GTEST_LIBRARIES} Threads::Threads)
+target_link_libraries(Tests Qt6::Core Qt6::Sql)
+target_link_libraries(Tests simple)
+
