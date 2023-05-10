@@ -1,7 +1,6 @@
 stages:
   - build
   - test
-  - deliver
 
 BuildCode:
   stage: build
@@ -30,11 +29,3 @@ TestCode:
       - report.xml
     reports:
       junit: report.xml
-
-DeliverCode:
-  stage: deliver
-  script:
-    - whoami
-  artifacts:
-    paths:
-      - dist/exe
