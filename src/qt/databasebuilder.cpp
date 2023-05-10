@@ -1,5 +1,6 @@
 #include "qt/databasebuilder.h"
 #include <fstream>
+#include <QCoreApplication>
 
 QtDataBaseBuilder::~QtDataBaseBuilder() {}
 
@@ -12,8 +13,12 @@ QtDataBaseBuilder::QtDataBaseBuilder() {
 
 //  code was taken from https://evileg.com/ru/post/62/
 
+QString database_file() {
+    return QDir(QCoreApplication::applicationDirPath()).absoluteFilePath("../dictionary.db");
+}
+
 void QtDataBaseBuilder::connectToDataBase() {
-    if(!QFile(QDir::currentPath() + "/dictionary.db").exists()){
+    if(!QFile(database_file()).exists()) {
         this->restoreDataBase();
     } else {
         this->openDataBase();
@@ -36,7 +41,7 @@ bool QtDataBaseBuilder::restoreDataBase() {
 
 bool QtDataBaseBuilder::openDataBase() {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(QDir::currentPath() + "/dictionary.db");
+    db.setDatabaseName(database_file());
     
     if (!db.open()) {
         qDebug() << "error insert";
@@ -96,7 +101,7 @@ std::shared_ptr<DataBase> QtDataBaseBuilder::getDatabase() {
 }
 
 bool QtDataBaseBuilder::parseEngRus() {
-    auto file_path = QDir::cleanPath(QDir().absoluteFilePath("../raw/eng-rus.txt"));
+    auto file_path = QDir::cleanPath(QDir(QCoreApplication::applicationDirPath()).absoluteFilePath("../raw/eng-rus.txt"));
     qDebug() << file_path;
 
     QFile file(file_path);
