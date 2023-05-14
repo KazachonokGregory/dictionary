@@ -53,6 +53,9 @@
     </property>
    </widget>
    <widget class="QComboBox" name="originalLang">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -63,6 +66,9 @@
     </property>
    </widget>
    <widget class="QComboBox" name="translationLang">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>290</x>

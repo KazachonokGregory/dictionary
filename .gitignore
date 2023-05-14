@@ -4,3 +4,5 @@ lib/
 build.sh
 .cache/
 *.user
+.todo
+compile_commands.json

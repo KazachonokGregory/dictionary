@@ -14,9 +14,7 @@ set(SOURCE_LIB
 
 add_library(simple SHARED ${SOURCE_LIB})
 target_include_directories(simple PRIVATE ${CMAKE_SOURCE_DIR}/include)
-target_link_libraries(simple
-    Qt6::Widgets
-)
+target_link_libraries(simple Qt6::Sql)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
@@ -25,4 +23,14 @@ install(
     LIBRARY DESTINATION lib
     PUBLIC_HEADER DESTINATION include
 )
+
+set(CONSOLE_DICT_SOURCES
+        simple/consoleapplication.cpp
+)
+
+add_executable(console_dictionary
+    ${CONSOLE_DICT_SOURCES}
+)
+
+target_link_libraries(console_dictionary PRIVATE simple)
 

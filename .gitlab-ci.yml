@@ -1,0 +1,31 @@
+stages:
+  - build
+  - test
+
+BuildCode:
+  stage: build
+  script:
+    - mkdir -p build
+    - cd build
+    - cmake ..
+    - make
+    - cmake --install . --prefix ../dist
+    - cd ..
+    - ls
+  artifacts:
+    paths:
+      - dist/exe
+      - bin
+      - lib
+
+TestCode:
+  variables:
+    GTEST_OUTPUT: "xml:report.xml"
+  stage: test
+  script:
+    - ./bin/Tests
+  artifacts:
+    paths:
+      - report.xml
+    reports:
+      junit: report.xml

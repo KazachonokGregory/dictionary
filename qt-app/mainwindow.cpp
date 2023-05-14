@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "simple/databasebuilder.h"
+#include "qt/databasebuilder.h"
 #include <memory>
 #include <vector>
 
@@ -10,12 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    SimpleDataBaseBuilder builder;
-    builder.addEntry(std::make_shared<SimpleEntry>("cat", "кот"));
-    builder.addEntry(std::make_shared<SimpleEntry>("dog", "пёс"));
-    builder.addLangs();
+    QtDataBaseBuilder builder;
     database = builder.getDatabase();
-    std::vector<std::string> supported_langs = std::dynamic_pointer_cast<SimpleDataBase>(database)->get_langs();
+    std::vector<std::string> supported_langs = std::dynamic_pointer_cast<QtDataBase>(database)->get_langs();
 
     QStringList list;
     for (auto lang : supported_langs) {
