@@ -18,6 +18,7 @@ BuildCode:
       - dist/exe
       - bin
       - lib
+      - build/coverage.xml
 
 TestCode:
   variables:
