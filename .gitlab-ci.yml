@@ -26,7 +26,7 @@ TestCode:
   stage: test
   script:
     - ./bin/Tests
-  coverage: /^TOTAL.*\s+(\d+\%)$/
+  coverage: '/^TOTAL.*\s+(\d+\%)$/'
   artifacts:
     paths:
       - report.xml
