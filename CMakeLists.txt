@@ -96,7 +96,7 @@ ADD_CUSTOM_TARGET(coverage
     #    COMMAND ./Tests
 
     # Running gcovr
-    COMMAND gcovr -x -r ${CMAKE_SOURCE_DIR} -e '${CMAKE_SOURCE_DIR}/tests/' -e '${CMAKE_SOURCE_DIR}/build/'  -o ${cov_output}.xml
+    COMMAND gcovr --xml-pretty --exclude-unreachable-branches --print-summary -r ${CMAKE_SOURCE_DIR} -e '${CMAKE_SOURCE_DIR}/tests/' -e '${CMAKE_SOURCE_DIR}/build/'  -o ${cov_output}.xml
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Running gcovr to produce Cobertura code coverage report."
     )
