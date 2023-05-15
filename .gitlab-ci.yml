@@ -9,6 +9,7 @@ BuildCode:
     - cd build
     - cmake ..
     - make
+    - make coverage
     - cmake --install . --prefix ../dist
     - cd ..
     - ls
@@ -29,3 +30,6 @@ TestCode:
       - report.xml
     reports:
       junit: report.xml
+      coverage_report: 
+        coverage_format: cobertura
+        path: build/coverage.xml
